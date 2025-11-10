@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/images/logo1.png';
 import { useLanguage } from '../context/LanguageContext';
 import { getTranslation } from '../utils/translations';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const { selectedLanguage } = useLanguage();
@@ -17,6 +18,7 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -47,7 +47,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{getTranslation(selectedLanguage, 'quickLinks')}</h3>
             <div className="space-y-2">
-              <Link to="/" className="block text-gray-600 dark:text-gray-400 hover:text-cyan-500 text-sm transition">
+              <Link to="/home" className="block text-gray-600 dark:text-gray-400 hover:text-cyan-500 text-sm transition">
                 {getTranslation(selectedLanguage, 'home1Link')}
               </Link>
               <Link to="/home2" className="block text-gray-600 dark:text-gray-400 hover:text-cyan-500 text-sm transition">

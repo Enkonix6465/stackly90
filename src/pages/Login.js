@@ -60,7 +60,7 @@ const Login = () => {
           localStorage.setItem('currentUser', JSON.stringify(userData));
           
           // Navigate to home page
-          navigate('/');
+          navigate('/home');
         } else {
           // Password doesn't match
           setError(getTranslation(selectedLanguage, 'loginErrorInvalidCredentials'));

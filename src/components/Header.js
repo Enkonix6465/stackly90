@@ -166,7 +166,7 @@ const Header = () => {
               {isHomeDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 z-50 animate-fadeIn">
                   <Link 
-                    to="/" 
+                    to="/home" 
                     className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-cyan-500"
                     onClick={() => setIsHomeDropdownOpen(false)}
                   >
@@ -418,7 +418,7 @@ const Header = () => {
 
             {/* Sign In button */}
             <Link 
-              to="/login" 
+              to="/" 
               className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-md text-sm font-medium transition"
             >
               {getTranslation(selectedLanguage, 'signIn')}

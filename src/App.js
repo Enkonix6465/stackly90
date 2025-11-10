@@ -29,15 +29,16 @@ import BlogPost3 from './pages/BlogPost3';
 
 function AppContent() {
   const location = useLocation();
-  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === '/reset-password';
+  const isAuthPage = location.pathname === '/' || location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === '/reset-password';
   const isAdminPage = location.pathname.startsWith('/admin');
 
   return (
     <div className="min-h-screen flex flex-col">
-      {!isAdminPage && (isAuthPage ? <AuthHeader /> : <Header />)}
+      {!isAdminPage && !isAuthPage && <Header />}
       <main className="flex-grow">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/home2" element={<Home2 />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
@@ -52,7 +53,7 @@ function AppContent() {
           <Route path="/blog/post2" element={<BlogPost2 />} />
           <Route path="/blog/post3" element={<BlogPost3 />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
+          
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
