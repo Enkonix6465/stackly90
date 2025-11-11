@@ -74,8 +74,29 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Section 1: Hero Section */}
-      <section className="bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-900 dark:to-blue-900 text-white py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gray-800 text-white py-20 md:py-32 overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.8, zIndex: 1 }}
+          onLoadStart={(e) => {
+            e.target.style.opacity = '0.8';
+          }}
+          onError={(e) => {
+            console.error('Video failed to load');
+            e.target.style.display = 'none';
+          }}
+        >
+          <source src="/videos/Home-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-black/30" style={{ zIndex: 2 }}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">

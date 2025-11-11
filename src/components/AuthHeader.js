@@ -5,14 +5,36 @@ import { useLanguage } from '../context/LanguageContext';
 
 const AuthHeader = () => {
   const { selectedLanguage, changeLanguage } = useLanguage();
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Check localStorage or system preference on initial load
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode !== null) {
+      return savedMode === 'true';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   
   const languageDropdownRef = useRef(null);
 
+  // Apply dark mode on component mount
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem('darkMode', newMode.toString());
+    if (newMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   };
 
   const toggleLanguageDropdown = () => {

@@ -139,7 +139,25 @@ const BlogPost1 = () => {
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 dark:from-blue-900 dark:via-indigo-900 dark:to-purple-950"></div>
-          <div className="absolute inset-0 opacity-30 dark:opacity-20">
+          
+          {/* Video Background */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 0.8, zIndex: 1 }}
+            onError={(e) => {
+              console.error('Video failed to load');
+              e.target.style.display = 'none';
+            }}
+          >
+            <source src="/videos/EventHandling-bg.mp4" type="video/mp4" />
+          </video>
+          
+          <div className="absolute inset-0 opacity-30 dark:opacity-20" style={{ zIndex: 2 }}>
             <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-400 dark:bg-cyan-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
             <div className="absolute top-0 right-0 w-96 h-96 bg-purple-400 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
             <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-pink-400 dark:bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>

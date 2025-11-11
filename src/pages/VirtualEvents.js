@@ -76,8 +76,24 @@ const VirtualEvents = () => {
     <div className="bg-white dark:bg-gray-900">
       {/* Section 1: Hero with Animated Tech Elements */}
       <section className="relative py-24 md:py-32 bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 dark:from-violet-900 dark:via-purple-900 dark:to-fuchsia-950 text-white overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.8, zIndex: 1 }}
+          onError={(e) => {
+            console.error('Video failed to load');
+            e.target.style.display = 'none';
+          }}
+        >
+          <source src="/videos/virtual-bg.mp4" type="video/mp4" />
+        </video>
         {/* Animated Tech Background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" style={{ zIndex: 2 }}>
           <div className="absolute top-20 left-10 w-64 h-64 bg-blue-400 dark:bg-blue-600 opacity-20 dark:opacity-10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-pink-400 dark:bg-pink-600 opacity-20 dark:opacity-10 rounded-full blur-3xl animate-float"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-400 dark:bg-purple-600 opacity-10 dark:opacity-5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '0.5s'}}></div>

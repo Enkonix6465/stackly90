@@ -33,7 +33,28 @@ const Contact = () => {
     <div className="bg-white dark:bg-gray-900">
       {/* Section 1: Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-teal-600 via-blue-600 to-indigo-600 dark:from-teal-900 dark:via-blue-900 dark:to-indigo-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20 dark:opacity-30"></div>
+        {/* Video Background with Fallback Image */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+            e.target.style.display = 'none';
+            const fallbackDiv = document.getElementById('contact-fallback-bg');
+            if (fallbackDiv) {
+              fallbackDiv.style.display = 'block';
+            }
+          }}
+        >
+          {/* Try local video first, then fallback to external URL */}
+          <source src="/videos/contact-bg.mp4" type="video/mp4" />
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-business-people-working-together-in-an-office-4610-small.mp4" type="video/mp4" />
+        </video>
+                {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-96 h-96 bg-teal-400 dark:bg-teal-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 dark:opacity-20 animate-float"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400 dark:bg-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 dark:opacity-20 animate-float" style={{animationDelay: '2s'}}></div>

@@ -26,7 +26,6 @@ import PartyCelebrations from './pages/PartyCelebrations';
 import BlogPost1 from './pages/BlogPost1';
 import BlogPost2 from './pages/BlogPost2';
 import BlogPost3 from './pages/BlogPost3';
-
 function AppContent() {
   const location = useLocation();
   const isAuthPage = location.pathname === '/' || location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === '/reset-password';

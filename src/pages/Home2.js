@@ -11,10 +11,24 @@ const Home2 = () => {
     <div className="bg-white dark:bg-gray-900">
       {/* Section 1: Hero Section - Event Discovery */}
       <section className="relative bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 dark:from-purple-900 dark:via-blue-900 dark:to-cyan-900 text-white py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-10 dark:opacity-20"></div>
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-400 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 dark:opacity-20 animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-72 h-72 bg-cyan-400 dark:bg-cyan-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 dark:opacity-20 animate-float" style={{animationDelay: '2s'}}></div>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.9, zIndex: 1 }}
+          onError={(e) => {
+            console.error('Video failed to load');
+            e.target.style.display = 'none';
+          }}
+        >
+          <source src="/videos/Home2-bg.mp4" type="video/mp4" />
+        </video>  
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0" style={{ zIndex: 3 }}>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-400 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-15 animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-72 h-72 bg-cyan-400 dark:bg-cyan-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-15 animate-float" style={{animationDelay: '2s'}}></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

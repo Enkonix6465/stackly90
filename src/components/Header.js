@@ -6,7 +6,14 @@ import { useLanguage } from '../context/LanguageContext';
 
 const Header = () => {
   const { selectedLanguage, changeLanguage } = useLanguage();
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Check localStorage or system preference on initial load
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode !== null) {
+      return savedMode === 'true';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHomeDropdownOpen, setIsHomeDropdownOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
@@ -17,9 +24,24 @@ const Header = () => {
   const servicesDropdownRef = useRef(null);
   const languageDropdownRef = useRef(null);
 
+  // Apply dark mode on component mount
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem('darkMode', newMode.toString());
+    if (newMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   };
 
   const toggleMobileMenu = () => {

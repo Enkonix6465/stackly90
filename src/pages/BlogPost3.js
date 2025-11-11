@@ -189,8 +189,25 @@ const BlogPost3 = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-rose-600 via-pink-600 to-purple-700 dark:from-rose-900 dark:via-pink-900 dark:to-purple-950"></div>
           
+          {/* Video Background */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 0.8, zIndex: 1 }}
+            onError={(e) => {
+              console.error('Video failed to load');
+              e.target.style.display = 'none';
+            }}
+          >
+            <source src="/videos/marraige checklist-bg.mp4" type="video/mp4" />
+          </video>
+          
           {/* Floating elements */}
-          <div className="absolute inset-0 opacity-20 dark:opacity-30">
+          <div className="absolute inset-0 opacity-20 dark:opacity-30" style={{ zIndex: 2 }}>
             <div className="absolute top-20 left-20 text-6xl animate-pulse">💕</div>
             <div className="absolute top-40 right-32 text-4xl animate-pulse" style={{animationDelay: '1s'}}>💐</div>
             <div className="absolute bottom-32 left-40 text-5xl animate-pulse" style={{animationDelay: '2s'}}>💍</div>
@@ -198,9 +215,9 @@ const BlogPost3 = () => {
           </div>
 
           {/* Gradient orbs */}
-          <div className="absolute top-0 left-0 w-96 h-96 bg-pink-400 dark:bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-rose-400 dark:bg-rose-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-400 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse" style={{animationDelay: '4s'}}></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-pink-400 dark:bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse" style={{ zIndex: 2 }}></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-rose-400 dark:bg-rose-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse" style={{animationDelay: '2s', zIndex: 2}}></div>
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-400 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse" style={{animationDelay: '4s', zIndex: 2}}></div>
         </div>
 
         {/* Content */}

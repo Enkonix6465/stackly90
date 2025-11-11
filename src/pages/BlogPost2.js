@@ -104,8 +104,25 @@ const BlogPost2 = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 dark:from-indigo-950 dark:via-purple-950 dark:to-pink-950"></div>
           
+          {/* Video Background */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 0.8, zIndex: 1 }}
+            onError={(e) => {
+              console.error('Video failed to load');
+              e.target.style.display = 'none';
+            }}
+          >
+            <source src="/videos/Technology-bg.mp4" type="video/mp4" />
+          </video>
+          
           {/* Animated Grid */}
-          <div className="absolute inset-0 opacity-20 dark:opacity-30">
+          <div className="absolute inset-0 opacity-20 dark:opacity-30" style={{ zIndex: 2 }}>
             <div className="absolute inset-0" style={{
               backgroundImage: 'linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)',
               backgroundSize: '50px 50px'
@@ -113,9 +130,9 @@ const BlogPost2 = () => {
           </div>
 
           {/* Floating Orbs */}
-          <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-72 h-72 bg-pink-500 dark:bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-indigo-500 dark:bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse" style={{animationDelay: '4s'}}></div>
+          <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse" style={{ zIndex: 2 }}></div>
+          <div className="absolute top-40 right-20 w-72 h-72 bg-pink-500 dark:bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse" style={{animationDelay: '2s', zIndex: 2}}></div>
+          <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-indigo-500 dark:bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-30 animate-pulse" style={{animationDelay: '4s', zIndex: 2}}></div>
         </div>
 
         {/* Content */}

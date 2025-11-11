@@ -80,8 +80,24 @@ const ExhibitionTradeShows = () => {
     <div className="bg-white dark:bg-gray-900">
       {/* Section 1: Hero with Animated Stats Banner */}
       <section className="relative py-24 md:py-32 bg-gradient-to-br from-orange-600 via-amber-500 to-yellow-500 dark:from-orange-900 dark:via-amber-900 dark:to-yellow-900 text-white overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.8, zIndex: 1 }}
+          onError={(e) => {
+            console.error('Video failed to load');
+            e.target.style.display = 'none';
+          }}
+        >
+          <source src="/videos/exhibitiontradeshow-bg.mp4" type="video/mp4" />
+        </video>
         {/* Animated Background Elements */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" style={{ zIndex: 2 }}>
           <div className="absolute top-20 left-10 w-72 h-72 bg-white opacity-10 dark:opacity-5 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-yellow-300 dark:bg-yellow-600 opacity-10 dark:opacity-5 rounded-full blur-3xl animate-pulse"></div>
         </div>

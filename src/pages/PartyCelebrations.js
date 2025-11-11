@@ -76,8 +76,24 @@ const PartyCelebrations = () => {
     <div className="bg-white dark:bg-gray-900">
       {/* Section 1: Hero with Dynamic Background */}
       <section className="relative py-24 md:py-32 bg-gradient-to-br from-fuchsia-600 via-pink-500 to-rose-500 dark:from-fuchsia-900 dark:via-pink-900 dark:to-rose-950 text-white overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.8, zIndex: 1 }}
+          onError={(e) => {
+            console.error('Video failed to load');
+            e.target.style.display = 'none';
+          }}
+        >
+          <source src="/videos/Party-bg.mp4" type="video/mp4" />
+        </video>
         {/* Animated Confetti Elements */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" style={{ zIndex: 2 }}>
           <div className="absolute top-20 left-10 w-4 h-4 bg-yellow-300 dark:bg-yellow-500 rounded-full animate-float dark:opacity-60"></div>
           <div className="absolute top-40 right-20 w-3 h-3 bg-blue-400 dark:bg-blue-600 rounded-full animate-bounce dark:opacity-60" style={{animationDelay: '0.2s'}}></div>
           <div className="absolute bottom-32 left-1/4 w-5 h-5 bg-green-400 dark:bg-green-600 rounded-full animate-pulse dark:opacity-60"></div>

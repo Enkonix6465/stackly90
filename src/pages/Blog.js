@@ -160,8 +160,24 @@ const Blog = () => {
     <div className="bg-white dark:bg-gray-900">
       {/* Section 1: Hero Section with Search */}
       <section className="relative py-24 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-900 dark:via-indigo-900 dark:to-purple-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20 dark:opacity-30"></div>
-        <div className="absolute inset-0">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.8, zIndex: 1 }}
+          onError={(e) => {
+            console.error('Video failed to load');
+            e.target.style.display = 'none';
+          }}
+        >
+          <source src="/videos/Blog-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black opacity-20 dark:opacity-30" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0" style={{ zIndex: 3 }}>
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 dark:bg-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 dark:opacity-20 animate-float"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 dark:opacity-20 animate-float" style={{animationDelay: '2s'}}></div>
         </div>

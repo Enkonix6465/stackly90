@@ -11,8 +11,24 @@ const WeddingPlanning = () => {
     <div className="bg-white dark:bg-gray-900">
       {/* Section 1: Hero with Split Design */}
       <section className="relative py-32 bg-gradient-to-br from-pink-600 via-rose-600 to-red-600 dark:from-pink-900 dark:via-rose-900 dark:to-red-950 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20 dark:opacity-30"></div>
-        <div className="absolute inset-0">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.8, zIndex: 1 }}
+          onError={(e) => {
+            console.error('Video failed to load');
+            e.target.style.display = 'none';
+          }}
+        >
+          <source src="/videos/Wedding-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black opacity-20 dark:opacity-30" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0" style={{ zIndex: 3 }}>
           <div className="absolute top-20 left-20 w-96 h-96 bg-pink-400 dark:bg-pink-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 dark:opacity-20 animate-float"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-rose-400 dark:bg-rose-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 dark:opacity-20 animate-float" style={{animationDelay: '2s'}}></div>
         </div>

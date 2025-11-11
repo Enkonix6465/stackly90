@@ -75,7 +75,16 @@ const About = () => {
     <div className="bg-white dark:bg-gray-900">
       {/* Section 1: Hero with Timeline */}
       <section className="relative py-24 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-900 dark:via-purple-900 dark:to-pink-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20 dark:opacity-30"></div>
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`,
+            opacity: 0.35
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/70 via-purple-600/70 to-pink-600/70 dark:from-indigo-900/85 dark:via-purple-900/85 dark:to-pink-900/85"></div>
+        <div className="absolute inset-0 bg-black opacity-10 dark:opacity-20"></div>
         <div className="absolute inset-0">
           <div className="absolute top-10 left-20 w-64 h-64 bg-pink-400 dark:bg-pink-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 dark:opacity-20 animate-float"></div>
           <div className="absolute bottom-10 right-20 w-96 h-96 bg-purple-400 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 dark:opacity-20 animate-float" style={{animationDelay: '2s'}}></div>
